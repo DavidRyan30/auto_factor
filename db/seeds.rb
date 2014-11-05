@@ -1,7 +1,18 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+# create some car types
+Car.create(make: 'Ford', model: 'Mondeo', year: 2011)
+Car.create(make: 'Ford', model: 'Focus', year: 2012)
+Car.create(make: 'Ford', model: 'Fiesta', year: 2010)
+Car.create(make: 'Toyota', model: 'Avensis', year: 2009)
+Car.create(make: 'Toyota', model: 'Yaris', year: 2011)
+Car.create(make: 'Toyota', model: 'Corolla', year: 2006)
+Car.create(make: 'Toyota', model: 'Auris', year: 2011)
+Car.create(make: 'Honda', model: 'Civic', year: 2012)
+Car.create(make: 'Honda', model: 'Accord', year: 2010)
+Car.create(make: 'Honda', model: 'Zest', year: 2113)
+Car.create(make: 'Honda', model: 'Jazz', year: 2014)
+Car.create(make: 'Nissan', model: 'Almera', year: 2005)
+Car.create(make: 'Nissan', model: 'Juke', year: 2006)
+Car.create(make: 'Nissan', model: 'Serena', year: 2007)
+Car.create(make: 'Renault', model: 'Scenic', year: 2009)
+Car.create(make: 'Renault', model: 'Megane', year: 2010)
+Car.create(make: 'Renault', model: 'Clio', year: 2004)

@@ -4,7 +4,7 @@ class CreateEmployees < ActiveRecord::Migration
       t.integer :emp_id
       t.string :emp_name
       t.string :emp_address
-
+ 
       t.timestamps
     end
   end

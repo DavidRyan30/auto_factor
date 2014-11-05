@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  part_id: 1
+  part_name: MyString
+  part_price: 1.5
+
+two:
+  part_id: 1
+  part_name: MyString
+  part_price: 1.5

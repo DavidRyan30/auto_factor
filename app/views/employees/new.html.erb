@@ -1,3 +1,23 @@
-<% provide(:title, 'Sign up') %>
-<h1>Sign up</h1>
-<p>Find me in app/views/employees/new.html.erb</p>
+ <% provide(:title, 'Sign up') %>
+    <h1>Sign up</h1>
+
+    <div class="row">
+      <div class="span6 offset3">
+        <%= form_for(@employee) do |f| %>
+
+          <%= f.label "Employee Name" %>
+          <%= f.text_field :emp_name %>
+
+          <%= f.label "Employee Address" %>
+          <%= f.text_field :emp_address %>
+
+          <%= f.label :password %>
+          <%= f.password_field :password %>
+
+          <%= f.label :password_confirmation, "Confirmation" %>
+          <%= f.password_field :password_confirmation %>
+
+          <%= f.submit "Register Employee", class: "btn btn-large btn-primary" %>
+        <% end %>
+      </div>
+    </div>

@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
   get 'employees/new'
+  resources :employees
+  resources :parts
+  resources :customers
 
   root to: 'static_pages#home'
   match '/help',    to: 'static_pages#help' , via: 'get'

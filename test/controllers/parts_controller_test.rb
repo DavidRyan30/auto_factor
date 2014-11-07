@@ -1,7 +1,19 @@
 require 'test_helper'
 
 class PartsControllerTest < ActionController::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  test "should get create" do
+    get :create
+    assert_response :success
+  end
+
+  test "should get delete" do
+    get :delete
+    assert_response :success
+  end
+
+  test "should get show" do
+    get :show
+    assert_response :success
+  end
+
 end

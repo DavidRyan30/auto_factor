@@ -8,8 +8,9 @@ class EmployeesController < ApplicationController
                                   :password, :password_confirmation)
         @employee = Employee.new(secure_params)
         if @employee.save
+          sign_in @employee
         	flash[:success] = "Welcome to the Auto Factor App!"
-          	redirect_to root_path
+          render 'parts/show'
         else
             render 'new'     
         end

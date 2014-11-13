@@ -1,0 +1,40 @@
+<% provide(:title, "Parts List") %>
+<div class = "row">
+	<div class="span1">
+	</div>
+	<div class="span10">
+		<div class="row">
+			<div class="span2"></div>
+			<div class="span8">
+				<%if @part_items.any?%>
+					<table class="table">
+						<tr>
+							<th>Part Name</th>
+							<th>Part Price</th>
+							<th>Part Quantity</th>
+						</tr>
+						<% @part_items.each do |p| %>
+						<%count = Part.where(:car_id => p.car_id).where(:part_name => p.part_name).count%>
+						<%if count <= 2 %>
+							<%status = "danger"%>
+						<%else%>
+							<%status = "ok"%>
+						<%end%>
+						<tr class = "<%=status%>">
+							<td><%= p.part_name %></td>
+							<td><%= p.part_price %></td>
+							<td><%=count%></td>	
+						</tr>
+						<%end%>	
+					</table>
+	  			<%else%>
+	  				There are no parts for this car
+	  			<%end%>
+			</div>
+			<div class="span2"></div>
+		</div>				
+	</div>
+	<div class="span1">
+	</div>
+
+</div>

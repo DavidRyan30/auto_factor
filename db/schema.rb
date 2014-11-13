@@ -43,7 +43,7 @@ ActiveRecord::Schema.define(version: 20141107102859) do
   create_table "parts", force: true do |t|
     t.string   "part_name"
     t.float    "part_price"
-    t.string   "car_id"
+    t.integer  "car_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

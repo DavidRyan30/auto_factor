@@ -1,0 +1,56 @@
+<% provide(:title, 'New Part') %>
+    <h1>New Part</h1>
+
+    <div class="row">
+      <div class="span6 offset3">
+
+        <%= form_for @part do |f| %>
+          <%= f.label "Part Name" %>
+          <%= f.text_field :part_name, autofocus: true %>
+          <select onChange = "getModel()" id = "carModelSelected">
+          	<option>
+          		Select Make
+          	</option>
+          	<% @cars.each do |car| %>
+          	<option value = "<%= car.make %>" ><%= car.make %></option>
+          	<% end %>
+          </select>
+          <select id = "makes" name = "part[car_id]">
+          	<option>Select Model</option>
+          </select>
+
+          <% f.hidden_field :car_id, :id=>"id_field"%>
+          <%= f.label "Price" %>
+          <%= f.text_field :part_price %>
+          <%= f.submit "Create Part", class: "btn btn-large btn-primary" %>
+        <% end %>
+      </div>
+    </div>
+    <script>
+	    function getModel(){
+	    	var carModelSelected = document.getElementById("carModelSelected");
+	    	var selectedValue = carModelSelected.options[carModelSelected.selectedIndex].value;
+	    	var makes = document.getElementById("makes");
+	    	var id_field = document.getElementById(id_field);
+			var request = $.ajax({
+		   		url: '/findmodel/'+selectedValue,
+		    	type: "post",
+		    	dataType: "json",
+		    	success: function(data, textStatus) {
+		      		// alert("Success: " + data[0].model);
+		      		for(var i = 0; i < data.length; i++) {
+		      			$('#makes').append($('<option>',{
+	      					value: data[i].id,
+	      					text: data[i].model
+	      				}));
+		      		}
+		    	},
+		    	error: function() {
+		      		alert("Error");
+		    	}
+			});
+			
+	    }
+
+
+    </script>

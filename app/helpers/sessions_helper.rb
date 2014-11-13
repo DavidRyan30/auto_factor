@@ -13,7 +13,7 @@
       def current_employee
         if @current_employee.nil?
            @current_employee = 
-               Employee.find_by_remember_token(cookies[:remember_token]) 
+           Employee.find_by_remember_token(cookies[:remember_token]) 
         end
         @current_employee
       end

@@ -4,4 +4,9 @@ class Car < ActiveRecord::Base
 			inclusion: { in: %w(Ford Toyota Nissan Honda Renault)}
 	validates :model, presence: true
 	validates :year, presence: true
+
+# 	def find_models(make)
+# 		sql = "select distinct model from cars where make = #{make}"
+# 		car_models = ActiveRecord::Base.connection.execute(sql)
+# 	end
 end

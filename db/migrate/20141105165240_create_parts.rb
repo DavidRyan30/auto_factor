@@ -4,8 +4,7 @@ class CreateParts < ActiveRecord::Migration
       t.integer :part_id
       t.string :part_name
       t.float :part_price
-      t.string :car_id
-
+      t.integer :car_id
       t.timestamps
     end
     add_index :parts, :car_id

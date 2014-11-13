@@ -1,0 +1,28 @@
+<div class="span1">
+
+</div>
+
+<div class="span10" id = "sidemenu">
+  	<section>
+  		<div id="PartMenu">
+  		<% car_make = car_item.make%>
+ 			<div class="list-group panel">
+    			<a href="#<%=car_make%>" class="list-group-item list-group-item-success" data-toggle="collapse" data-parent="#PartMenu"><%=car_make%></a>
+    			<div class="collapse" id="<%=car_make%>">
+    				<% cars = Car.where("make=?",car_make) %>
+  					<% cars.each do |c|%>
+      					<%= link_to "#{c.model}", {:controller => "parts", :action => "showparts", :car_id => "#{c.id}" } %>
+      				<%end%>
+    			</div>
+  			</div>
+		</div>		
+	</section>
+</div>
+<div class="span1">
+		
+</div>
+
+
+
+
+

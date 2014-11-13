@@ -10,7 +10,7 @@ class EmployeesController < ApplicationController
         if @employee.save
           sign_in @employee
         	flash[:success] = "Welcome to the Auto Factor App!"
-          render 'parts/show'
+          render 'static_pages/welcome'
         else
             render 'new'     
         end

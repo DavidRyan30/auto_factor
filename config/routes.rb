@@ -1,4 +1,14 @@
 Rails.application.routes.draw do
+  get 'customers/show'
+
+  get 'customers/new'
+
+  get 'customers/create'
+
+  get 'invoices/create'
+
+  get 'invoices/show'
+
   get 'parts/create'
 
   get 'parts/delete'
@@ -25,5 +35,6 @@ Rails.application.routes.draw do
   match '/showparts', to: 'parts#showparts', via: 'get'
   # match '/newpart', to: 'parts#new', via: 'get'
   match '/findmodel/:id', to: 'parts#findmodel', via: 'post'
-
+  match '/customers/create', to: 'customers#create', via: 'post'
+  
 end

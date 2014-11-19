@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141107102859) do
+ActiveRecord::Schema.define(version: 20141113161243) do
 
   create_table "cars", force: true do |t|
     t.string   "make"
@@ -22,11 +22,10 @@ ActiveRecord::Schema.define(version: 20141107102859) do
   end
 
   create_table "customers", force: true do |t|
-    t.string   "cust_name"
-    t.string   "cust_address"
-    t.string   "cust_phone"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.string "cust_name"
+    t.string "cust_address"
+    t.string "cust_phone"
+    t.string "cust_email"
   end
 
   create_table "employees", force: true do |t|
@@ -39,6 +38,14 @@ ActiveRecord::Schema.define(version: 20141107102859) do
   end
 
   add_index "employees", ["remember_token"], name: "index_employees_on_remember_token"
+
+  create_table "invoices", force: true do |t|
+    t.integer  "p_id"
+    t.integer  "c_id"
+    t.integer  "e_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "parts", force: true do |t|
     t.string   "part_name"

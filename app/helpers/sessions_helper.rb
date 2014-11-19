@@ -9,7 +9,6 @@
         @current_employee = employee
       end
 
-      # NEW GETTER
       def current_employee
         if @current_employee.nil?
            @current_employee = 

@@ -4,4 +4,10 @@ class InvoicesController < ApplicationController
 
   def show
   end
+
+  def new
+  	@invoice = Invoice.new
+  	@customers = Customer.all
+  	
+  end
 end

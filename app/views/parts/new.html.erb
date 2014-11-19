@@ -37,7 +37,6 @@
 		    	type: "post",
 		    	dataType: "json",
 		    	success: function(data, textStatus) {
-		      		// alert("Success: " + data[0].model);
 		      		for(var i = 0; i < data.length; i++) {
 		      			$('#makes').append($('<option>',{
 	      					value: data[i].id,

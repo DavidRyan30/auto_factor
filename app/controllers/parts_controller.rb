@@ -10,7 +10,6 @@ class PartsController < ApplicationController
     if @models
       @models.each {|m| puts m.model}
       respond_to do |format|
-        # format.js {render status: :created}
         format.json {render json: @models, status: :created}
       end
     else

@@ -1,0 +1,17 @@
+<% provide(:title, 'New Invoice') %>
+<%= form_for @invoice do |f| %>
+  <select>
+  	<option>
+  		Select Customer
+  	</option>
+  	<% @customers.each do |cust| %>
+  	<option value = "<%= cust.id %>" ><%= cust.cust_email %></option>
+  	<% end %>
+  </select>
+  <%@part = Part.where("id = ?", params[:part_id])%>
+  <%@part.each do |p|%>
+  	<%= f.text_field :id, :value => p.part_name ,:readonly => true%>
+  	<%= f.text_field :id, :value => p.part_price ,:readonly => true%>
+  <%end%>
+  <%= f.submit "Create Invoice", class: "btn btn-large btn-primary" %>
+<% end %>

@@ -9,6 +9,7 @@ class EmployeesController < ApplicationController
         @employee = Employee.new(secure_params)
         if @employee.save
           sign_in @employee
+          flash[:success] = "Employee #{@employee.emp_name} has been created"
           render 'static_pages/welcome'
         else
             render 'new'     

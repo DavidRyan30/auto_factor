@@ -23,6 +23,7 @@ class PartsController < ApplicationController
     secure_params = params.require(:part).permit(:part_name, :car_id, :part_price)
     @part = Part.new(secure_params)
     @part.save
+    flash[:success] = "Part #{@part.part_name} has been created"
     redirect_to '/show'
   end
 

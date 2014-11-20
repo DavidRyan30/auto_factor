@@ -255,3 +255,13 @@ Employee.create(emp_name: 'Joe Bloggs', emp_email: 'joe@joe.joe', password: 'sec
 Employee.create(emp_name: 'John Finn', emp_email: 'john@john.john', password: 'secret', password_confirmation: 'secret')
 Employee.create(emp_name: 'Adam Ryan', emp_email: 'adam@adam.adam', password: 'secret', password_confirmation: 'secret')
 
+Employee.create(emp_name: 'David Ryan', emp_email: 'drsaltmills@gmail.com', password: 'secret', password_confirmation: 'secret')
+Employee.create(emp_name: 'Joe Bloggs', emp_email: 'joe@joe.joe', password: 'secret', password_confirmation: 'secret')
+Employee.create(emp_name: 'John Finn', emp_email: 'john@john.john', password: 'secret', password_confirmation: 'secret')
+Employee.create(emp_name: 'Adam Ryan', emp_email: 'adam@adam.adam', password: 'secret', password_confirmation: 'secret')
+Employee.create(emp_name: 'David Ryan', emp_email: 'prss@gmail.com', password: 'secret', password_confirmation: 'secret')
+Employee.create(emp_name: 'Joe Bloggs', emp_email: 'lodoe@joe.joe', password: 'secret', password_confirmation: 'secret')
+Employee.create(emp_name: 'John Finn', emp_email: 'ergeth@john.john', password: 'secret', password_confirmation: 'secret')
+Employee.create(emp_name: 'Adam Ryan', emp_email: 'tgbrgwb@adam.adam', password: 'secret', password_confirmation: 'secret')
+
+

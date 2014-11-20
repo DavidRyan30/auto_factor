@@ -250,8 +250,8 @@ Part.create(part_name: 'fuel filter', part_price: '30.5', car_id: '16')
 Part.create(part_name: 'oil filter', part_price: '16.5', car_id: '11')
 Part.create(part_name: 'brake disks', part_price: '130.5', car_id: '8')
 
-Employee.create(emp_name: 'Joe Bloggs', emp_address: 'Joe bloggs town', password: 'secret', password_confirmation: 'secret')
-Employee.create(emp_name: 'David Ryan', emp_address: 'Saltmills New Ross', password: 'secret', password_confirmation: 'secret')
-Employee.create(emp_name: 'John Finn', emp_address: 'Some town', password: 'secret', password_confirmation: 'secret')
-Employee.create(emp_name: 'Adam Ryan', emp_address: 'Saltmills New Ross', password: 'secret', password_confirmation: 'secret')
+Employee.create(emp_name: 'David Ryan', emp_email: 'drsaltmills@gmail.com', password: 'secret', password_confirmation: 'secret')
+Employee.create(emp_name: 'Joe Bloggs', emp_email: 'joe@joe.joe', password: 'secret', password_confirmation: 'secret')
+Employee.create(emp_name: 'John Finn', emp_email: 'john@john.john', password: 'secret', password_confirmation: 'secret')
+Employee.create(emp_name: 'Adam Ryan', emp_email: 'adam@adam.adam', password: 'secret', password_confirmation: 'secret')
 

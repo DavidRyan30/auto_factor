@@ -1,13 +1,14 @@
  <header class="navbar navbar-fixed-top">
       <div class="navbar-inner">
         <div class="content">
-          <%= link_to "Auto Stock", root_path, id: "logo" %>
+          <p id = "logo">Auto Stock</p>
           <nav>
             <ul class="nav pull-right">
-              <li><%= link_to "Home", root_path %></li>
-              <li><%= link_to "Help", help_path %></li>
+
                    <!-- Is employee logged in? -->
               <% if signed_in? %>
+                <li><%= link_to "Home", welcome_path %></li>
+                <li><%= link_to "Help", help_path %></li>
                 <li><%= link_to "Catalogue", 'show' %></li>
                 <li id="fat-menu" class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown">

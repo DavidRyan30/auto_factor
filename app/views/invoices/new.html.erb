@@ -10,8 +10,10 @@
   </select>
   <%@part = Part.where("id = ?", params[:part_id])%>
   <%@part.each do |p|%>
-  	<%= f.text_field :id, :value => p.part_name ,:readonly => true%>
-  	<%= f.text_field :id, :value => p.part_price ,:readonly => true%>
+    <%= f.hidden_field :p_id, :value => p.id%>
+
+  	<%= f.text_field :part_name, :value => p.part_name ,:readonly => true%>
+  	<%= f.text_field :part_price, :value => p.part_price ,:readonly => true%>
   <%end%>
   <%= f.submit "Create Invoice", class: "btn btn-large btn-primary" %>
 <% end %>

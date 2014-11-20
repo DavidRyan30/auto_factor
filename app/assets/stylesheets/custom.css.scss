@@ -65,12 +65,7 @@
     margin-top: 45px;
     @include box_sizing;
   }
-    /*sidemenu*/
-    #sidemenu{
-    background-color: #FFFFF0;
-    color: #aaa;
-    
-    }
+
 
  /* universal */
 
@@ -138,10 +133,6 @@
       line-height: 1;
     }
 
-    #logo:hover {
-      color: #fff;
-      text-decoration: none;
-    }
 
      /* footer */
 
@@ -172,6 +163,18 @@
     footer ul li {
       float: left;
       margin-left: 10px;
+    }
+
+    #catalog_menu{  
+      background-color: #ccc;
+    }
+    #catalog_div{
+      margin: 10px;
+
+    }
+
+    #make_model_list{
+      padding:10px;
     }
 
    

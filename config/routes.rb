@@ -22,7 +22,7 @@ Rails.application.routes.draw do
   match '/signup',  to: 'employees#new', via: 'get'
   match '/signin',  to: 'sessions#new', via: 'get'         
   match '/signout', to: 'sessions#destroy', via: :delete
-  match '/show',    to: 'parts#show', via: 'get'
+  match '/show_parts_menu',    to: 'parts#show', via: 'get'
   match '/delete',  to: 'parts#delete', via: 'get'
   match '/showparts', to: 'parts#showparts', via: 'get'
   match '/findmodel/:id', to: 'parts#findmodel', via: 'post'

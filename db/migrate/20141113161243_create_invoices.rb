@@ -4,7 +4,6 @@ class CreateInvoices < ActiveRecord::Migration
       t.integer :p_id
       t.integer :c_id
       t.integer :e_id
-
       t.timestamps
     end
   end

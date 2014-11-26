@@ -14,7 +14,7 @@ class PartsController < ApplicationController
       end
     else
       respond_to do |format|
-        format.js {render :status => 403}
+      format.js {render :status => 403}
       end
     end
   end
@@ -24,7 +24,7 @@ class PartsController < ApplicationController
     @part = Part.new(secure_params)
     @part.save
     flash[:success] = "Part #{@part.part_name} has been created"
-    redirect_to '/show'
+    redirect_to '/show_parts_menu'
   end
 
   def delete

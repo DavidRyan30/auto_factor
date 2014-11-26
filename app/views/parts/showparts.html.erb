@@ -1,11 +1,9 @@
 <% provide(:title, "Parts List") %>
 <div class = "row">
-	<div class="span10">
-		<div class="row">
 			<div class="span2"></div>
 			<div class="span8">
 				<%if @part_items.any?%>
-					<table class="table">
+					<table class="table" >
 						<tr>
 							<th>Part Name</th>
 							<th>Part Price</th>
@@ -32,10 +30,5 @@
 	  				There are no parts for this car
 	  			<%end%>
 			</div>
-			<div class="span2"></div>
-		</div>				
+			<div class="span2"></div>				
 	</div>
-	<div class="span1">
-	</div>
-
-</div>

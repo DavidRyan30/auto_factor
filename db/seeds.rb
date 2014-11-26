@@ -255,13 +255,21 @@ Employee.create(emp_name: 'Joe Bloggs', emp_email: 'joe@joe.joe', password: 'sec
 Employee.create(emp_name: 'John Finn', emp_email: 'john@john.john', password: 'secret', password_confirmation: 'secret')
 Employee.create(emp_name: 'Adam Ryan', emp_email: 'adam@adam.adam', password: 'secret', password_confirmation: 'secret')
 
-Employee.create(emp_name: 'David Ryan', emp_email: 'drsaltmills@gmail.com', password: 'secret', password_confirmation: 'secret')
-Employee.create(emp_name: 'Joe Bloggs', emp_email: 'joe@joe.joe', password: 'secret', password_confirmation: 'secret')
-Employee.create(emp_name: 'John Finn', emp_email: 'john@john.john', password: 'secret', password_confirmation: 'secret')
-Employee.create(emp_name: 'Adam Ryan', emp_email: 'adam@adam.adam', password: 'secret', password_confirmation: 'secret')
-Employee.create(emp_name: 'David Ryan', emp_email: 'prss@gmail.com', password: 'secret', password_confirmation: 'secret')
-Employee.create(emp_name: 'Joe Bloggs', emp_email: 'lodoe@joe.joe', password: 'secret', password_confirmation: 'secret')
-Employee.create(emp_name: 'John Finn', emp_email: 'ergeth@john.john', password: 'secret', password_confirmation: 'secret')
-Employee.create(emp_name: 'Adam Ryan', emp_email: 'tgbrgwb@adam.adam', password: 'secret', password_confirmation: 'secret')
+Customer.create(cust_name: 'David Ryan', cust_email: 'drsaltmills@gmail.com',cust_address: 'Saltmills New Ross Co Wexford ',
+      cust_phone: "234567890")
+Customer.create(cust_name: 'Joe Bloggs', cust_email: 'joe@joe.joe',cust_address: 'Tallaught Saltmills New Ross Co Wexford',
+      cust_phone: "234567890")
+Customer.create(cust_name: 'John Finn', cust_email: 'john@john.john',cust_address: 'Staplestown Murrintown Co Wexford',
+      cust_phone: "234567890")
+Customer.create(cust_name: 'Adam Ryan', cust_email: 'adam@adam.adam',cust_address: 'Fethard-on-Sea New Ross Co Wexford',
+      cust_phone: "234567890")
+Customer.create(cust_name: 'David Ryan', cust_email: 'prss@gmail.com',cust_address: 'Saltmills New Ross Co Wexford',
+      cust_phone: "234567890")
+Customer.create(cust_name: 'Joe Bloggs', cust_email: 'lodoe@joe.joe',cust_address: 'North Street Wexford Town',
+      cust_phone: "234567890")
+Customer.create(cust_name: 'John Finn', cust_email: 'ergeth@john.john',cust_address: 'Passage East Co Waterford',
+      cust_phone: "234567890")
+Customer.create(cust_name: 'Adam Ryan', cust_email: 'tgbrgwb@adam.adam',cust_address: 'Spruce Cobh Tramore Co Waterford',
+      cust_phone: "234567890")
 
 

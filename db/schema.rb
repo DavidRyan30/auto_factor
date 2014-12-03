@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141120104614) do
+ActiveRecord::Schema.define(version: 20141201114818) do
 
   create_table "cars", force: true do |t|
     t.string   "make"
@@ -20,6 +20,14 @@ ActiveRecord::Schema.define(version: 20141120104614) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "carts", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "cart_token"
+  end
+
+  add_index "carts", ["cart_token"], name: "index_carts_on_cart_token"
 
   create_table "customers", force: true do |t|
     t.string "cust_name"
@@ -40,9 +48,9 @@ ActiveRecord::Schema.define(version: 20141120104614) do
   add_index "employees", ["remember_token"], name: "index_employees_on_remember_token"
 
   create_table "invoices", force: true do |t|
-    t.integer  "p_id"
     t.integer  "c_id"
     t.integer  "e_id"
+    t.integer  "cart_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -51,10 +59,12 @@ ActiveRecord::Schema.define(version: 20141120104614) do
     t.string   "part_name"
     t.float    "part_price"
     t.integer  "car_id"
+    t.integer  "cart_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   add_index "parts", ["car_id"], name: "index_parts_on_car_id"
+  add_index "parts", ["cart_id"], name: "index_parts_on_cart_id"
 
 end

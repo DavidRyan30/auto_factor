@@ -1,12 +1,12 @@
 class InvoicePdf < Prawn::Document
- def initialize(invoice, part, car, customer, employee, view)
+ def initialize(invoice, parts, customer, employee, view)
     super()
     @invoice = invoice
-    @part = part
-    @car = car
+    @parts = parts
     @customer = customer
     @employee = employee
     @view = view
+    @total_price = 0
     logo
     logo_divider
     invoice_dets
@@ -59,16 +59,17 @@ class InvoicePdf < Prawn::Document
 
   def part_dets
   	move_down 90
-	text "Part: #{@part.part_name.slice(0,1).capitalize + @part.part_name.slice(1..-1)} for #{@car.make} #{@car.model}
+    @parts.each do |part|
+	  text "Part: #{part.part_name.slice(0,1).capitalize + part.part_name.slice(1..-1)}
 
-		Price: €#{@part.part_price}",
+		Price: €#{part.part_price}",
   	:indent_paragraphs => 20, :size => 13
+    # @total_price = total_price+part.part_price
+
+    end
   end
 
   def precision(num)
     @view.number_with_precision(num, :precision => 2)
   end
-
- 
-
 end

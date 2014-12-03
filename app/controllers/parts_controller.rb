@@ -32,10 +32,13 @@ class PartsController < ApplicationController
 
   def show
   	@car_items = Car.all.group(:make)
+    @cart = Cart.create
+    make_current_cart @cart
   end
 
   def showparts
     @part_items = Part.where("car_id = ?", params[:car_id]).group(:part_name)
 
   end
+
 end

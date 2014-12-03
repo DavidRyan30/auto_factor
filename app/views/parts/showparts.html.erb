@@ -8,6 +8,7 @@
 							<th>Part Name</th>
 							<th>Part Price</th>
 							<th>Part Quantity</th>
+							<th>Check to Add to Cart</th>
 						</tr>
 						<% @part_items.each do |p| %>
 						<%count = Part.where(:car_id => p.car_id).where(:part_name => p.part_name).count%>
@@ -20,12 +21,15 @@
 							<td><%= p.part_name %></td>
 							<td><%= p.part_price %></td>
 							<td><%=count%></td>
-							<td>
-								<%= button_to "Order", {:controller => "invoices", :action => "new",  :part_id => "#{p.id}"}%>
-							</td>
+							<td><%= check_box_tag "parts[p_ids][]", "#{p.id}"%></td>
 						</tr>
+
+							
+							 
 						<%end%>	
+					<!-- Wrap this table in a form and access that from the submit button -->
 					</table>
+
 	  			<%else%>
 	  				There are no parts for this car
 	  			<%end%>

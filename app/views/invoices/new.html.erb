@@ -1,18 +1,59 @@
 <div style = "margin-top: 40px"></div>
 <% provide(:title, 'New Invoice') %>
-<div class="row">
-	<div class="span3">
-	</div>
-	<div class="span6">
-		<%= form_for @invoice do |f| %>
-  		<%=collection_select :invoice, :c_id, @customers ,:id, :cust_email%>
-  		<%= f.hidden_field :e_id, value: @employee.id %>
-  		<%= f.hidden_field :p_id, value: @part.id %>
+<div class = "row">
+			<div class="span2"></div>
+			<div class="span8">
+
+       
+				<%if @parts.any?%>
+					<table class="table" >
+						<tr>
+							<th>Part Name</th>
+							<th>Part Price</th>
+							<th>Part Quantity</th>
+							<th>Check to Add to Cart</th>
+						</tr>
+						<% @parts.each do |p| %>
+						<%count = Part.where(:car_id => p.car_id).where(:part_name => p.part_name).count%>
+						<%if count <= 2 %>
+							<%status = "danger"%>
+						<%else%>
+							<%status = "ok"%>
+						<%end%>
+						<tr class = "<%=status%>">
+							<td><%= p.part_name %></td>
+							<td><%= p.part_price %></td>
+							<td><%=count%></td>
+							<%@cart = current_cart%>
+							<td> <%=button_to 'Add To Cart',{:action => :update, :id => p.id}, :controller => :invoices, :method => :put%></td>
+
+						</tr>
+						<%end%>	
+					<!-- Wrap this table in a form and access that from the submit button -->
+					</table>
+
+	  			<%else%>
+	  				There are no parts for this car
+	  			<%end%>
+        <%= form_for @invoice do |f| %>
+        <%=collection_select :invoice, :c_id, @customers ,:id, :cust_email%>
+	  	<%= f.hidden_field :e_id, value: @employee.id %>
+        <%=f.hidden_field :cart_id, value: @cart.id%>
+  		
   		<%= f.submit "Create Invoice", class: "btn btn-small btn-primary" %>
-	<% end %>
+	  			<%end%>
+			</div>
+			<div class="span2"></div>				
 	</div>
-	<div class="span3">
-	</div>
-</div>
+
+
+
+
+
+
+
+
+
+
 
 

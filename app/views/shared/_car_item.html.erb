@@ -9,7 +9,7 @@
           <div class="collapse" id="<%=car_make%>">
             <% cars = Car.where("make=?",car_make) %>
             <% cars.each do |c|%>
-                <%= link_to "#{c.model}", {:controller => "parts", :action => "showparts", :car_id => "#{c.id}" } %>
+                <%= link_to "#{c.model}", {:controller => "invoices", :action => "new", :car_id => "#{c.id}" } %>
               <%end%>
           </div>
         </div>

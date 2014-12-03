@@ -17,6 +17,6 @@ class SessionsController < ApplicationController
 	def destroy
        	sign_out
        	flash[:success] = "Thank you for using Auto Stock!"
-    	redirect_to root_url
+    	  redirect_to root_url
     end 
 end

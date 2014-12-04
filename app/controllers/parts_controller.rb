@@ -2,6 +2,7 @@ class PartsController < ApplicationController
   def new
     @part = Part.new
     @cars = Car.all.group(:make)
+    @cars = Car.select('DISTINCT(#{:make)')
     @models = Car.where("id = ?", :car_id)
   end
 

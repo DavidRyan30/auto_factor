@@ -1,13 +1,13 @@
 class PartsController < ApplicationController
   def new
     @part = Part.new
-    @cars = Car.all.group(:make)
+    # @cars = Car.all.group(:make)
     @cars = Car.select('DISTINCT(#{:make)')
     @models = Car.where("id = ?", :car_id)
   end
 
   def findmodel
-    @models = Car.where(make: params[:id]).group(:model)
+    @models = Car.select('DISTINCT(model').where(make: params[:id])
     if @models
       @models.each {|m| puts m.model}
       respond_to do |format|
@@ -32,7 +32,8 @@ class PartsController < ApplicationController
   end
 
   def show
-  	@car_items = Car.all.group(:make)
+  	# @car_items = Car.all.group(:make)
+    @car_items = Car.select('DISTINCT(make)')
     @cart = Cart.create
     make_current_cart @cart
   end

@@ -1,11 +1,11 @@
-<div style = "margin-top: 40px"></div>
+<!--<div style = "margin-top: 40px"></div>-->
 <% provide(:title, 'New Invoice') %>
 <div class = "row">
 			<div class="span2"></div>
 			<div class="span8">
-
-       
 				<%if @parts.any?%>
+                  <h2>Parts Catalogue for <%= @car.make%> <%= @car.model %>  </h2>
+                  <h5>Ensure the customer is registered before proceeding with the order</h5>
 					<table class="table" >
 						<tr>
 							<th>Part Name</th>
@@ -26,7 +26,6 @@
 							<td><%=count%></td>
 							<%@cart = current_cart%>
 							<td> <%=button_to 'Add To Cart',{:action => :update, :id => p.id}, :controller => :invoices, :method => :put%></td>
-
 						</tr>
 						<%end%>	
 					<!-- Wrap this table in a form and access that from the submit button -->
@@ -36,12 +35,12 @@
 	  				There are no parts for this car
 	  			<%end%>
         <%= form_for @invoice do |f| %>
-        <%=collection_select :invoice, :c_id, @customers ,:id, :cust_email%>
+        <%=collection_select :invoice, :c_id, @customers ,:id, :cust_email, prompt: "Select customer email"%>
 	  	<%= f.hidden_field :e_id, value: @employee.id %>
         <%=f.hidden_field :cart_id, value: @cart.id%>
   		
   		<%= f.submit "Create Invoice", class: "btn btn-small btn-primary" %>
-	  			<%end%>
+	  	<%end%>
 			</div>
 			<div class="span2"></div>				
 	</div>

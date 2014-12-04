@@ -10,12 +10,17 @@
     box-sizing: border-box;
   }
     #error_explanation {
-      color: #f00;
+      color: #ff0000;
       ul {
         list-style: none;
         margin: 0 0 18px 0;
       }
     }
+
+  #help_steps{
+    text-align: left;
+  }
+
 
     .field_with_errors {
       @extend .control-group;
@@ -35,16 +40,23 @@
 
   /* content */
 
-    .content {
-      width: 85%;
+    #container {
+      width: 100%;
       margin: 0 auto;
-      background-color: #FFFFF4;
+      background-color: #ca4644;
+//      position:absolute;
+//      top:0;
+//      bottom:0;
+      min-height: 100vh;
+      display:block;
+      overflow:auto;
     }
     /* header */
     header {
-      width: 85%;
+      width: 100%;
       margin: 0 auto;
-      background-color: #999;
+      color: #222222;
+
     }
 
     .danger {
@@ -74,7 +86,6 @@
     }
 
     body {
-      backgound-color: #FFFFF0;
       padding-top: 40px;
     }
 
@@ -113,7 +124,7 @@
       margin-bottom: 30px;
       text-align: center;
       font-weight: normal;
-      color: #999;
+      color: rgba(15, 7, 6, 0.89);
     }
 
     p {
@@ -123,58 +134,36 @@
 
     #logo {
       float: left;
-      margin-right: 10px;
+      margin-left: 20px;
       font-size: 1.7em;
       color: #444;
       text-transform: uppercase;
       letter-spacing: -1px;
-      padding-top: 9px;
+      padding-top: 12px;
       font-weight: bold;
       line-height: 1;
     }
-
-
-     /* footer */
-
-    footer {
-      margin-top: 45px;
-      padding-top: 5px;
-      border-top: 1px solid #eaeaea;
-      color: #999;
+    .block{
+      padding-top: 80px;
+      width: 85%;
+      margin: 0 auto;
     }
 
-    footer a {
-      color: #555;
-    }  
 
-    footer a:hover { 
-      color: #222;
-    }
+//    #catalog_menu{
+//      background-color: #;
+//    }
+//    #catalog_div{
+//      margin: 10px;
+//
+//    }
 
-    footer small {
-      float: left;
-    }
-
-    footer ul {
-      float: right;
-      list-style: none;
-    }
-
-    footer ul li {
-      float: left;
-      margin-left: 10px;
-    }
-
-    #catalog_menu{  
-      background-color: #ccc;
-    }
-    #catalog_div{
-      margin: 10px;
-
-    }
-
-    #make_model_list{
+    #partmenu{
       padding:10px;
+    }
+
+    .table{
+      padding-top: 20px;
     }
 
    

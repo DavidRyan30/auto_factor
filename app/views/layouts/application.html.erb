@@ -17,8 +17,11 @@
           <% flash.each do |key, value| %>         
           <div class="alert alert-<%= key %>"><%= value %></div>
           <% end %>
-          <%= yield %>
-          <%= render 'layouts/footer' %>
+          <div class = "block">
+            <div class="center hero-unit">
+                <%= yield %>
+            </div>
+          </div>
         </div>
       </body>
     </html>

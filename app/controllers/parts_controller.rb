@@ -2,12 +2,12 @@ class PartsController < ApplicationController
   def new
     @part = Part.new
     # @cars = Car.all.group(:make)
-    @cars = Car.select('DISTINCT(#{:make)')
+    @cars = Car.select('DISTINCT(make)')
     @models = Car.where("id = ?", :car_id)
   end
 
   def findmodel
-    @models = Car.select('DISTINCT(model').where(make: params[:id])
+    @models = Car.select('DISTINCT(model)').where(make: params[:id])
     if @models
       @models.each {|m| puts m.model}
       respond_to do |format|
@@ -40,7 +40,7 @@ class PartsController < ApplicationController
 
   def showparts
     # @part_items = Part.where("car_id = ?", params[:car_id]).group(:part_name)
-    @part_items = Part.select('DISTINCT(#{:part_name)').where("car_id = ?", params[:car_id])
+    @part_items = Part.select('DISTINCT(part_name)').where("car_id = ?", params[:car_id])
 
 
   end

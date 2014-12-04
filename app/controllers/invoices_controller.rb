@@ -1,7 +1,7 @@
 class InvoicesController < ApplicationController
   @car_id = 0
   def create
-  	secure_params = params.require(:invoice).permit(:c_id, :e_id, :cart_id)
+    secure_params = params.require(:invoice).permit(:c_id, :e_id, :cart_id)
 
     @invoice = Invoice.new(secure_params)
     if @invoice.save
@@ -18,16 +18,16 @@ class InvoicesController < ApplicationController
 
 
   def show
-      @invoice = Invoice.find(params[:id])
-      @customer = Customer.find(@invoice.c_id)
-      @employee = current_employee
-      cart = current_cart.id
-      @parts = Part.where("cart_id = ?", cart)
+    @invoice = Invoice.find(params[:id])
+    @customer = Customer.find(@invoice.c_id)
+    @employee = current_employee
+    cart = current_cart.id
+    @parts = Part.where("cart_id = ?", cart)
     # Just display the order details in the HTML in the Browser
   end
 
   def download_pdf
-  #   Download pdf triggered by button click on show.
+    #   Download pdf triggered by button click on show.
     @invoice = Invoice.find(params[:id])
     @customer = Customer.find(@invoice.c_id)
     @employee = current_employee
@@ -42,9 +42,9 @@ class InvoicesController < ApplicationController
   end
 
   def new
-  	@invoice = Invoice.new
+    @invoice = Invoice.new
     # cookies[:remember_token] = @cart.id
-  	@customers = Customer.all
+    @customers = Customer.all
     @employee = current_employee
     @car_id = params[:car_id]
     @car = Car.find(params[:car_id])

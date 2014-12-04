@@ -1,13 +1,7 @@
 class InvoicesController < ApplicationController
   @car_id = 0
   def create
-    # @part_ids = params[:invoice][:parts] = []
   	secure_params = params.require(:invoice).permit(:c_id, :e_id, :cart_id)
-    if params[:c_id] == nil
-      redirect_to :back
-      flash[:error] = "You must select a customer before creating an invoice"
-
-    elsif params[:cart_id] == nil
 
     @invoice = Invoice.new(secure_params)
     if @invoice.save
@@ -16,11 +10,9 @@ class InvoicesController < ApplicationController
       # redirect_to "/invoices/#{i}.pdf"
       redirect_to "/invoices/#{i}"
     else
-      flash[:error] = "Invoice has not been created for parts #{:parts.to_s}"
-      i = @invoice.id
-      redirect_to "/invoices/#{i}"
+      flash[:error] = "Invoice has not been created check details"
     end
-    end
+
     # redirect_to :controller => 'invoices', :action => 'show', :id => i
   end
 

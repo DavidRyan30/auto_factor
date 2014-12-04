@@ -37,7 +37,9 @@ class PartsController < ApplicationController
   end
 
   def showparts
-    @part_items = Part.where("car_id = ?", params[:car_id]).group(:part_name)
+    # @part_items = Part.where("car_id = ?", params[:car_id]).group(:part_name)
+    @part_items = Part.select('DISTINCT(#{:part_name)').where("car_id = ?", params[:car_id])
+
 
   end
 

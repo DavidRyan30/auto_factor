@@ -6,7 +6,6 @@ class InvoicePdf < Prawn::Document
     @customer = customer
     @employee = employee
     @view = view
-    @total_price = 0
     logo
     logo_divider
     invoice_dets
@@ -58,15 +57,17 @@ class InvoicePdf < Prawn::Document
   end
 
   def part_dets
+    @total_price = 0
   	move_down 90
     @parts.each do |part|
 	  text "Part: #{part.part_name.slice(0,1).capitalize + part.part_name.slice(1..-1)}
-
-		Price: €#{part.part_price}",
+		Price: €#{part.part_price}
+    ",
   	:indent_paragraphs => 20, :size => 13
-    # @total_price = total_price+part.part_price
+    @total_price = @total_price + part.part_price
 
     end
+    text "Total Price ex vat: #{@total_price.to_s}"
   end
 
   def precision(num)

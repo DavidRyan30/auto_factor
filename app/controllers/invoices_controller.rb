@@ -8,36 +8,39 @@ class InvoicesController < ApplicationController
     if @invoice.save
       flash[:success] = "Invoice has been created"
       i = @invoice.id
-      redirect_to "/invoices/#{i}.pdf"
+      # redirect_to "/invoices/#{i}.pdf"
+      redirect_to "/invoices/#{i}"
     else
       flash[:error] = "Invoice has not been created for parts #{:parts.to_s}"
       i = @invoice.id
       redirect_to "/invoices/#{i}"
     end
-    
-
     # redirect_to :controller => 'invoices', :action => 'show', :id => i
   end
 
+
   def show
+      @invoice = Invoice.find(params[:id])
+      @customer = Customer.find(@invoice.c_id)
+      @employee = current_employee
+      cart = current_cart.id
+      @parts = Part.where("cart_id = ?", cart)
+    # Just display the order details in the HTML in the Browser
+  end
+
+  def download_pdf
+  #   Download pdf triggered by button click on show.
     @invoice = Invoice.find(params[:id])
     @customer = Customer.find(@invoice.c_id)
     @employee = current_employee
     cart = current_cart.id
     @parts = Part.where("cart_id = ?", cart)
-    # @parts = Part.find_by_cart_id(cart)
-    # puts @parts.part_name
-    respond_to do |format|
-      format.html
-      format.pdf do
-        pdf = InvoicePdf.new(@invoice, @parts, @customer, @employee,  view_context)
-        send_data pdf.render, filename: 
+
+    pdf = InvoicePdf.new(@invoice, @parts, @customer, @employee,  view_context)
+    send_data pdf.render, filename:
         "invoice_#{@invoice.created_at.strftime("%d/%m/%Y")}.pdf",
-        type: "application/pdf"
-      end
-    end
-    cookies.delete(:cart_token)
-    current_cart.delete
+              type: "application/pdf"
+
   end
 
   def new

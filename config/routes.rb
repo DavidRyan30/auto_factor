@@ -29,4 +29,7 @@ Rails.application.routes.draw do
   match '/customers/create', to: 'customers#create', via: 'post'
   match '/invoices/new', to: 'invoices#new', via: 'post'
   match '/invoices/create', to: 'invoices#create', via: 'post'
+  # match '/invoices/download_pdf', to: 'invoices#download_pdf', via: 'get'
+  match '/invoices/:id/download_pdf', to: 'invoices#download_pdf', via: :get, as: :download_pdf
 end
+

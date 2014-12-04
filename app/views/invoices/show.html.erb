@@ -1,2 +1,83 @@
-<h1>Invoices#show</h1>
-<p>Find me in app/views/invoices/show.html.erb</p>
+<div style = "margin-top: 40px"></div>
+<% provide(:title, 'Invoice') %>
+<div class ="row">
+  <!--invoice body-->
+  <div class = "span12">
+    <!--invoice header row-->
+    <div class = "row" id=" invoice_header">
+      <div class = "span3" id = "logo">
+      </div>
+      <div class = "span6">
+        <h1>AUTO STOCK</h1>
+      </div>
+      <div class="span3"></div>
+    </div>
+    <!--invoice/customer details row-->
+    <div class = "row" id = "invoice_customer_details">
+      <!--invoice details span-->
+        <div class="span3">
+          <p>Invoice Number: <%=@invoice.id %></p>
+          <p>Date: <%=@invoice.created_at.strftime("%d/%m/%Y")%></p>
+          <p>Served By: <%=@employee.emp_name%></p>
+          </div>
+      <!--blank span-->
+        <div class="span4"></div>
+      <!--customer details span-->
+        <div class="span3">
+            <p><%=@customer.cust_name %></p>
+            <p><%=@customer.cust_address %></p>
+            <p><%= @customer.cust_email%></p>
+            <p><%= @customer.cust_phone %></p>
+        </div>
+    </div>
+
+    <div class ="row" id = "invoice_part_dets">
+      <div class="span12">
+
+        <table class="table" >
+          <tr>
+            <th>Part Name</th>
+            <th>Make</th>
+            <th>Model</th>
+            <th>Price</th>
+          </tr>
+          <% @total_ex_vat = 0.0%>
+          <% @parts.each do |part| %>
+              <%car = Car.find(part.car_id) %>
+              <tr>
+                <td><%= part.part_name %></td>
+                <td><%= car.make %></td>
+                <td><%= car.model %></td>
+                <td><%= part.part_price.round(2) %></td>
+              </tr>
+              <% @total_ex_vat=@total_ex_vat+part.part_price %>
+          <%end%>
+          <tr>
+            <td></td>
+            <td></td>
+            <td><b>Total ex vat</b></td>
+            <td><%= @total_ex_vat %></td>
+          </tr>
+          <% @vat = (@total_ex_vat/100)*21 %>
+          <%@total_inc_vat = @total_ex_vat+@vat%>
+          <tr>
+            <td></td>
+            <td></td>
+            <td><b>Vat @ 21%</b></td>
+            <td><%= @vat.round(2) %></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td><b>Total Including Vat</b></td>
+            <td><%= @total_inc_vat.round(2) %></td>
+          </tr>
+         </table>
+      </div>
+
+       <%= link_to 'Download PDF', download_pdf_path(@invoice.id) %>
+
+    </div>
+  </div>
+
+</div>

@@ -34,6 +34,10 @@ class PartsController < ApplicationController
   def show
   	# @car_items = Car.all.group(:make)
     @car_items = Car.select('DISTINCT(make)')
+    if current_cart
+      cookies.delete(:cart_token)
+      current_cart.destroy
+    end
     @cart = Cart.create
     make_current_cart @cart
   end

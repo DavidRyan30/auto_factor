@@ -16,4 +16,9 @@ module InvoicesHelper
     end
     @current_cart
   end
+
+  def back_to_catalog
+    cookies.delete(:cart_token)
+    current_cart.destroy
+  end
 end

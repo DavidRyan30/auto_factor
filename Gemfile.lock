@@ -1,3 +1,22 @@
+GIT
+  remote: git://github.com/sferik/rails_admin.git
+  revision: 275c6a868074a3a8237678826c0bc0cbadbfbd2a
+  specs:
+    rails_admin (0.6.5)
+      builder (~> 3.1)
+      coffee-rails (~> 4.0)
+      font-awesome-rails (>= 3.0, < 5)
+      haml (~> 4.0)
+      jquery-rails (>= 3.0, < 5)
+      jquery-ui-rails (~> 5.0)
+      kaminari (~> 0.14)
+      nested_form (~> 0.3)
+      rack-pjax (~> 0.7)
+      rails (~> 4.0)
+      remotipart (~> 1.0)
+      safe_yaml (~> 1.0)
+      sass-rails (>= 4.0, < 6)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -176,7 +195,11 @@ DEPENDENCIES
   rails (= 4.1.1)
   rails-erd
   rails_12factor (~> 0.0.2)
-  rails_admin
+
+
+
+  rails_admin!
+
   rake
   sass-rails (~> 4.0.0)
   sdoc

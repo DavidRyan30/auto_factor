@@ -1,7 +1,9 @@
 source 'https://rubygems.org'
 ruby '2.0.0'
 gem 'rails', '4.1.1'
-gem 'rails_admin'
+
+gem 'rails_admin', :git => 'git://github.com/sferik/rails_admin.git'
+
 
 group :development do
   gem 'sqlite3'
